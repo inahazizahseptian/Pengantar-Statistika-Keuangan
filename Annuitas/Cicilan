@@ -1,0 +1,21 @@
+#nilai annuitas bunga majemuk nominal
+#tot = an/sn
+cicilan<-function(num,tot,i,t, m=TRUE){
+  n = m*t
+  j = i/m
+  v = (1+j)^-1
+  switch(num,
+         satu={
+           kan = tot*j/(1-v^n)
+           ksn = tot*j/((1+j)^n-1)
+           cat("cicilan untuk present value untuk annuitas akhir: ", kan,"\n")
+           cat("cicilan utuk nilai akumulasi untuk annuitas akhir: ", ksn)
+         },
+         dua={
+           kan = tot*(j*v)/(1-v^n)
+           ksn = tot*(j*v)/((1+j)^n-1)
+           cat("cicilan present value untuk annuitas awal: ", kan,"\n")
+           cat("cicilan nilai akumulasi untuk annuitas awal: ", ksn)
+         }
+  )
+}
